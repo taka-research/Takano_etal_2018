@@ -7,4 +7,12 @@ Source code is MTIgcm checkpoint 63s
 
 code_v3_orig: MITgcm customization
 
-Large input files are located at http://shadow.eas.gatech.edu/~Ito/webdata/Takano_etal_2018
+Large input files are located at http://shadow.eas.gatech.edu/~Ito/webdata/takano18/input_files
+Copy the contents of this file to the disk system where you run the model. 
+
+This model is already spun up for 3,000 years using monthly climatological forcing. 
+The initial conditions (pickup) are iter = 2160000. 
+
+To run the control run, the run-time data file is in CTL 
+
+
