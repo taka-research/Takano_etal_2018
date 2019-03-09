@@ -13,6 +13,8 @@ Copy the contents of this file to the disk system where you run the model.
 This model is already spun up for 3,000 years using monthly climatological forcing. 
 The initial conditions (pickup) are iter = 2160000. 
 
-To run the control run, the run-time data file is in CTL 
+The run-time data files are in; 
 
-
+CTL: control run
+ALL: anthropogenic climate change (rcp8.5 like)
+ALL_cbio: same as ALL but constant biology
