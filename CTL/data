@@ -1,0 +1,102 @@
+# ====================
+# | Model parameters |
+# ====================
+#
+# PARM01: Continuous equation parameters
+ &PARM01
+# The tRef and sRef increased vertical resolutions(September 6th, 2013)
+ tRef = 23*20.,
+ sRef = 23*35.,
+ viscA4 = 0.,
+ viscAh = 2.E5,
+ diffKhT = 0.E3,
+ diffKhS = 0.E3,
+ viscAz = 1.E-3,
+# diffKzT = 3.E-5,
+# diffKzS = 3.E-5,
+ diffKrBL79surf = 3.E-5,
+ diffKrBL79deep = 13.E-5,
+ diffKrBL79Ho = -2000.,
+ diffKrBL79scl = 150.,
+ gravity = 9.81,
+ rhoConst = 1035.,
+ rhoConstFresh = 1000.,
+ implicitFreeSurface =.TRUE.,
+ eosType ='JMD95Z',
+ implicitDiffusion =.TRUE.,
+ implicitViscosity =.TRUE.,
+# ivdc_kappa = 100.,
+# Changed the advection scheme(September 6th, 2013)
+ tempAdvScheme = 77,
+ saltAdvScheme = 77,
+ allowFreezing =.TRUE.,
+# Turn on looped cells
+ hFacMin =.1,
+ hFacMindz = 50.,
+ useCDscheme =.TRUE.,
+ useSinglecpuIO =.TRUE.,
+ staggerTimeStep =.TRUE., 
+ &
+
+# PARM02: Elliptic solver parameters
+ &PARM02
+ cg2dMaxIters = 1000,
+ cg2dTargetResidual = 1.E-13,
+ &
+
+# PARM03: Time stepping parameters
+ &PARM03
+ nIter0 = 1,
+# nIter0 = 2160000,
+# PARM03-1: Length of the simulation in time step(300 years + 1 month)
+ nTimeSteps = 216060,
+# Time increment is 12 hours for physics
+ deltaTmom = 900.,
+ tauCD = 321428.,
+# Time increment is 12 hours for tracers
+ deltaTtracer = 43200.,
+ deltaTClock = 43200.,
+ abEps = 0.1,
+ pChkptFreq = 3110400000.,
+ chkptFreq = 3110400000.,
+ dumpFreq  = 311104000000.,
+# taveFreq time average output frequency
+# taveFreq has changed to 1 year output
+ taveFreq  = 31104000.,
+ monitorFreq = 8640000.,
+ tauThetaClimRelax = 5184000.,
+ tauSaltClimRelax  = 7776000.,
+ periodicExternalForcing =.TRUE.,
+ externForcingPeriod = 2592000.,
+# externalForcingCycle the duration of the external forcing data cycle in seconds
+# 300 years(9331200000) + 1 month(2592000)
+ externForcingCycle = 9333792000.,
+# externForcingCycle = 31104000.,
+ pickupstrictlymatch =.false.,
+ &
+
+# PARM04: Gridding parameters
+ &PARM04
+ usingSphericalPolarGrid =.TRUE.,
+# Vertical resolution increased to 23(September 6th, 2013)
+ delZ=10.,10.,15.,20.,20.,25.,35.,50.,75.,100.,150.,200.,275.,350.,415.,450.,500.,500.,500.,500.,500.,500.,500.,
+ ygOrigin = -90.,
+ delX = 128*2.8125,
+ delY = 64*2.8125,
+ &
+
+# PARM05: Input datasets (turning off the hydrographic run still works)
+ &PARM05
+ bathyFile = '/gpfs/pace1/project/eas-ito/ytakano3/global3_v3/input_files/bathymetry/bathy.bin',
+ hydrogThetaFile = '/gpfs/pace1/project/eas-ito/ytakano3/global3_v3/input_files/defaultfields/initial/lev_clim_temp_v3.bin',
+ hydrogSaltFile = '/gpfs/pace1/project/eas-ito/ytakano3/global3_v3/input_files/defaultfields/initial/lev_clim_salt_v3.bin',
+ zonalWindFile = '/gpfs/pace1/project/eas-ito/ytakano3/global3_v3/input_files/cyclicfields/three_cent/atsocn/trend_adj_taux.bin',
+ meridWindFile = '/gpfs/pace1/project/eas-ito/ytakano3/global3_v3/input_files/cyclicfields/three_cent/atsocn/trend_adj_tauy.bin',
+ thetaClimFile = '/gpfs/pace1/project/eas-ito/ytakano3/global3_v3/input_files/cyclicfields/three_cent/atsocn/trend_adj_temp.bin',
+ saltClimFile = '/gpfs/pace1/project/eas-ito/ytakano3/global3_v3/input_files/cyclicfields/three_cent/atsocn/trend_adj_salt_so.bin',
+ surfQFile = '/gpfs/pace1/project/eas-ito/ytakano3/global3_v3/input_files/cyclicfields/three_cent/atsocn/trend_adj_qnet.bin',
+ EmPmRFile = '/gpfs/pace1/project/eas-ito/ytakano3/global3_v3/input_files/cyclicfields/three_cent/atsocn/trend_adj_empmr.bin',
+ the_run_name = 'Global Biogeochemistry Model Control Experiment', 
+ checkIniTemp= .False.,
+ checkIniSalt= .False.,
+ &
