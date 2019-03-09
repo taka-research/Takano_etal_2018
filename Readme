@@ -5,3 +5,6 @@ README
 This is a collection of set up files for Yohei's global 2.8x2.8 run as published in 2018. 
 Source code is MTIgcm checkpoint 63s
 
+code_v3_orig: MITgcm customization
+
+Large input files are located at http://shadow.eas.gatech.edu/~Ito/webdata/Takano_etal_2018
