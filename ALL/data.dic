@@ -1,0 +1,26 @@
+# DIC Package Parameters 
+ &ABIOTIC_PARMS
+ &
+
+# Iron Cycle Model Parameters
+# Iron Limitation 30% Reduction Settings are Included(November 23rd, 2013)
+ &BIOTIC_PARMS
+  alpfe = 1.0E-2,
+#  alpfe = 0.7E-2,
+#  KFE = 1.2E-7,
+#  KFE = 0.84E-7,
+#  KScav = 6.11E-9,
+#  KScav = 4.28E-9, 
+  alphaUniform = 2.0e-10,
+  rainRatioUniform = 5.e-2,
+  KDOPRemin = 1.6E-8,
+  KRemin = 0.858,
+ &
+
+ &DIC_FORCING
+  DIC_iceFile='/gpfs/pace1/project/eas-ito/ytakano3/global3_v3/input_files/cyclicfields/three_cent/dic/trend_adj_fice.bin',
+  DIC_windFile='/gpfs/pace1/project/eas-ito/ytakano3/global3_v3/input_files/cyclicfields/three_cent/dic/trend_adj_tren_speed.bin',
+  DIC_silicaFile='/gpfs/pace1/project/eas-ito/ytakano3/global3_v3/input_files/cyclicfields/three_cent/dic/trend_adj_sillev1.bin',
+  DIC_ironFile='/gpfs/pace1/project/eas-ito/ytakano3/global3_v3/input_files/cyclicfields/three_cent/feflux/trend_adj_feflux_luo03.bin',
+# DIC_prodFile='***.bin',
+ &
